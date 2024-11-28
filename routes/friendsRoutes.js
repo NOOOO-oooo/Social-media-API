@@ -14,4 +14,6 @@ router.delete(
    friendsControllers.deleteFriend
 );
 
+router.get("/all", ensureAuthenticated, friendsControllers.getAllFriends);
+
 module.exports = router;

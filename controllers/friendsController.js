@@ -71,3 +71,24 @@ exports.deleteFriend = async (req, res) => {
       console.log(error);
    }
 };
+
+exports.getAllFriends = async (req, res) => {
+   try {
+      const all = await prisma.friends.findMany({
+         where: {
+            user_id: req.user.id,
+         },
+      });
+
+      if (all.length === 0) {
+         return res.status(200).json({ message: "sad, no friends" });
+      } else {
+         return res
+            .status(200)
+            .json({ message: "All your friends", all, length: all.length });
+      }
+   } catch (error) {
+      return res.status(500).json({ error: error.message });
+      // console.log(error);
+   }
+};
