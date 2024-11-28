@@ -17,6 +17,6 @@ And it also has authentication. The access token is checked whenver the signed i
 
 
 
-This image represents the relaiton between tables.
+This image represents the relation between tables.
 
 both the friends and the likes table represent a many-to-many relation.
